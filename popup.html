@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" style="padding: 20px; text-align: center;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoomark</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.min.css" />
+
+  </head>
+  <body style="text-align: center">
+    <div
+      class="features-boxed"
+      style="height: 130px; width: none; min-width: none; border-radius: 0px;"
+    >
+      <div
+        class="container"
+        style="
+          text-align: center;
+          width: 350px;
+          padding-right: 0px;
+          padding-left: 0px;
+        "
+      >
+        <div
+          class="intro"
+          style="
+            text-align: center;
+            margin-right: 0px;
+            margin-left: 0px;
+            width: 350px;
+            min-width: 350px;
+            max-width: 350px;
+            margin-bottom: 20px;
+          "
+        >
+          <h2
+            class="text-center"
+            style="
+              margin-bottom: 8px;
+              width: 350px;
+              min-width: 350px;
+              padding-top: 30px;
+              font-size: 32px;
+              color:#af272f;
+            "
+          >
+            Zoomark
+          </h2>
+          <p
+            class="text-center"
+            style="
+              padding-right: 0px;
+              padding-left: 0px;
+              text-align: center;
+              width: 350px;
+              min-width: 350px;
+              max-width: 350px;
+              color:#9e2b2f;
+              font-weight: bold;
+            "
+          >
+            당신의 줌을 북마크하세요!
+          </p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div
+      class="features-boxed"
+      style="width: none; min-width: none;"
+    >
+      <div
+        class="container"
+        style="
+          text-align: center;
+          width: 350px;
+          padding-right: 0px;
+          padding-left: 0px;
+          padding-bottom: 15px;
+        "
+      >
+        <div style="width: 100%">
+          <h4
+            class="text-center"
+            style="
+              margin-bottom: 25px;
+              width: 350px;
+              min-width: 350px;
+              padding-top: 25px;
+              font-size: 22px;
+            "
+          >
+            Bookmark List
+            <a
+              id="open"
+              style="
+                color: #0077b6;
+                padding-left: 10px;
+                font-size: 16px;
+                display: inline;
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                width="24"
+              height="24"
+              fill="#9e2b2f"
+              viewBox="0 0 30 30">
+              <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+              </svg>
+          </a>
+          <a
+              id="close"
+              style="
+                color: #0077b6;
+                padding-left: 10px;
+                font-size: 16px;
+                display: none;
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                width="24"
+              height="24"
+              fill="#9e2b2f"
+              viewBox="0 0 30 30"
+              >
+              <path d="M0 10h24v4h-24z"/>
+              </svg>
+          </a>
+          </h4>
+        </div>
+        <form class="addZoom" style="display: none; margin-bottom: 10px;">
+          <div class="form-row" style="text-align: center;margin-right: 0px;margin-left: 0px;">
+                        <div class="col-md-6" style="width: 150px;padding-right: 0px;padding-left: 0px;text-align: right;max-width: 35%;"><label class="col-form-label" style="padding-right: 10px;margin-top: 5px;">수업 이름</label></div>
+                        <div class="col" style="margin-top: 5px;padding-right: 0px;text-align: left;max-width: 70%;"><input id="save-name" class="form-control" type="text" style="width: 175px;"></div>
+                    </div>
+          <div class="form-row" style="text-align: center;margin-right: 0px;margin-left: 0px;">
+                        <div class="col-md-6" style="width: 150px;padding-right: 0px;padding-left: 0px;text-align: right;max-width: 35%;"><label class="col-form-label" style="padding-right: 10px;margin-top: 5px;">줌 링크</label></div>
+                        <div class="col" style="margin-top: 5px;padding-right: 0px;text-align: left;max-width: 70%;"><input id="save-link" class="form-control" type="text" style="width: 175px;"></div>
+                    </div>
+                    <div class="form-row" style="text-align: center;margin-right: 0px;margin-left: 0px;">
+                        <div class="col-md-6" style="width: 150px;padding-right: 0px;padding-left: 0px;text-align: right;max-width: 35%;"><label class="col-form-label" style="padding-right: 10px;margin-top: 5px;">암호</label></div>
+                        <div class="col" style="margin-top: 5px;padding-right: 0px;text-align: left;max-width: 70%;"><input id="save-password" class="form-control" type="text" style="width: 175px;"></div>
+                    </div><div class="form-row" style="text-align: center;margin-right: 0px;margin-left: 0px;">
+                        <div class="col-md-6" style="width: 150px;padding-right: 0px;padding-left: 0px;text-align: right;max-width: 35%;"><label class="col-form-label" style="padding-right: 10px;margin-top: 5px;">날짜 및 시간</label></div>
+                        <div class="col" style="margin-top: 5px;padding-right: 0px;text-align: left;max-width: 70%;"><input id="save-date" class="form-control" type="text" style="width: 175px;"></div>
+                    </div>
+          <button class="btn" id="saveZoom" type="submit" style="text-align: center;margin-top: 22.5px; color:white; background-color:#9e2b2f">줌 링크 저장하기</button>
+        </form>
+
+        <div id="bookmarks" class="row" style="margin-left: 0; margin-right: 0;">
+          <div id="area" class="col">
+            
+          </div>
+      </div>
+    </div>
+    <br />
+    <script src="./popup.js"></script>
+  </body>
+</html>
