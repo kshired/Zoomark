@@ -14,7 +14,7 @@ function Zoomark({ data }) {
   };
 
   const openLink = () => {
-    chrome.tabs.create({ link });
+    chrome.tabs.create({ url: link });
   };
 
   return (

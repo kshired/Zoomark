@@ -8,20 +8,60 @@ import { useEffect, useState } from 'react';
 function App() {
   const [zooMarks, setZoomarks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [text, setText] = useState('');
+  const [date, setDate] = useState('');
+  const [password, setPassword] = useState('');
+  const [link, setLink] = useState('');
 
   useEffect(() => {
     chrome.storage.sync.get('zoomark', (items) => {
       if (items.zoomark === undefined) {
         return;
       }
-      let tmp = [];
-      for (let item of items.zoomark) {
-        console.log(item);
-        tmp.push(item);
-      }
-      setZoomarks(tmp);
+      setZoomarks(items.zoomark);
     });
   }, []);
+
+  const clearInputs = () => {
+    setPassword('');
+    setText('');
+    setDate('');
+    setLink('');
+  };
+
+  const saveZoomark = () => {
+    if (
+      text.length !== 0 &&
+      date.length !== 0 &&
+      link.length !== 0 &&
+      password.length !== 0
+    ) {
+      chrome.storage.sync.get('zoomark', (items) => {
+        let new_items = items.zoomark;
+        if (new_items === undefined) {
+          new_items = [];
+        }
+        for (let items of new_items) {
+          if (items.id === link) {
+            alert('이미 존재하는 수업입니다!');
+            return;
+          }
+        }
+        new_items.push({
+          link,
+          id: link,
+          password,
+          text,
+          date,
+        });
+        chrome.storage.sync.set({ zoomark: new_items });
+        alert('추가되었습니다!');
+        window.location.reload();
+      });
+      clearInputs();
+    }
+  };
+
   return (
     <>
       <div
@@ -147,6 +187,7 @@ function App() {
                 }}
                 onClick={() => {
                   setIsOpen(false);
+                  clearInputs();
                 }}
               >
                 <svg
@@ -165,10 +206,10 @@ function App() {
             className="addZoom"
             style={{ display: isOpen ? 'block' : 'none', marginBottom: '10px' }}
           >
-            <FormRow title={'수업 이름'} />
-            <FormRow title={'줌 링크'} />
-            <FormRow title={'암호'} />
-            <FormRow title={'날짜 및 시간'} />
+            <FormRow title={'수업 이름'} value={text} onChange={setText} />
+            <FormRow title={'줌 링크'} value={link} onChange={setLink} />
+            <FormRow title={'암호'} value={password} onChange={setPassword} />
+            <FormRow title={'날짜 및 시간'} value={date} onChange={setDate} />
             <button
               className="btn"
               id="saveZoom"
@@ -178,6 +219,9 @@ function App() {
                 marginTop: '22.5px',
                 color: 'white',
                 backgroundColor: '#9e2b2f',
+              }}
+              onClick={() => {
+                saveZoomark();
               }}
             >
               줌 링크 저장하기

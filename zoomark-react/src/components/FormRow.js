@@ -1,4 +1,4 @@
-function FormRow({ title }) {
+function FormRow({ title, value, onChange }) {
   return (
     <div
       className="form-row"
@@ -38,11 +38,14 @@ function FormRow({ title }) {
         }}
       >
         <input
-          id="save-name"
           className="form-control"
           type="text"
           style={{
             width: '175px',
+          }}
+          value={value}
+          onChange={(e) => {
+            onChange(e.target.value);
           }}
         />
       </div>
