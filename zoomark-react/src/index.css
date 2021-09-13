@@ -1,0 +1,77 @@
+html {
+  padding: 20px;
+  text-align: center;
+}
+body {
+  overflow: scroll;
+  background-color: #b1b3b3;
+  text-align: center;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.features-boxed {
+  color: #9e2b2f;
+  background-color: #f4f7f7;
+  border-radius: 8%;
+}
+.features-boxed p {
+  color: #7d8285;
+}
+.features-boxed h2 {
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  color: inherit;
+  font-size: 32px;
+}
+
+@media (max-width: 767px) {
+  .features-boxed h2 {
+    margin-bottom: 25px;
+    padding-top: 25px;
+    font-size: 32px;
+  }
+}
+.features-boxed .intro {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+nav {
+  margin: 0 auto;
+}
+
+.features-boxed .intro p {
+  margin-bottom: 0;
+}
+.features-boxed .features {
+  padding: 0 0 22px;
+}
+.features-boxed .item {
+  text-align: center;
+}
+.features-boxed .item .box {
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+.features-boxed .item .icon {
+  font-size: 60px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+.features-boxed .item .name {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+  margin-top: 0;
+  color: inherit;
+}
+.features-boxed .item .description {
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
