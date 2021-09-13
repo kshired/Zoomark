@@ -1,6 +1,16 @@
 /*global chrome*/
+import useCopy from 'use-copy';
+
 function Zoomark({ data }) {
   const { id, text, date, link, password } = data;
+  const [copied, copy, setCopied] = useCopy(password);
+
+  const copyText = () => {
+    copy();
+    setTimeout(() => {
+      setCopied(false);
+    });
+  };
 
   const deleteZoomark = (id) => {
     chrome.storage.sync.get('zoomark', (items) => {
@@ -55,6 +65,7 @@ function Zoomark({ data }) {
           style={{ backgroundColor: '#af272f' }}
           onClick={(e) => {
             e.preventDefault();
+            copyText();
             openLink();
           }}
         >
